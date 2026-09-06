@@ -4,7 +4,7 @@
 __global__ void sigmoid_kernel(const float* input, float* output, int N) {
     int i = blockIdx.x * blockDim.x + threadIdx.x;
     if (i < N) {
-        output[i] = 1.0f / (1.0f + expf(-input[i]));
+        output[i] = 1.0f / (1.0f + __expf(-input[i]));
     }
 }
 
